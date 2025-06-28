@@ -28,7 +28,8 @@ body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
-    padding-block: 25px;
+    padding-top: 25px;
+    padding-bottom: 10px;
     color: white;
 }
 
@@ -287,6 +288,62 @@ main {
 
         .evaluation {
             margin-top: 3rem;
+        }
+    }
+
+    footer {
+        text-align: center;
+        color: #ffcf55;
+        margin-top: 30px;
+
+        a {
+            color: #ffb700;
+            text-decoration: none;
+        }
+    }    
+
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        .card {
+            padding: 30px 5px;
+        }
+    
+        .caratula {
+            .decorative-elements {
+                display: none;
+            }
+        }
+    
+        .index {
+            ul {
+                font-size: 1rem;
+
+                li {
+                    .dotted-line {
+                        border-width: 3px;
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+        }
+
+        .project {
+            p {
+                padding: 0 25px;
+            }
+
+            .fundamentation {
+                .aspects {
+                    display: block;
+                    padding: 0 25px;
+                }
+            }
+
+            .application-of-the-solution {
+                padding-inline: 5px;
+            }
         }
     }
 }
