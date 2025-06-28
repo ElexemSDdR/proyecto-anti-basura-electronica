@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+}
+
+ @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding-block: 25px;
+    color: white;
+}
+
+ .main-titles {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-inline: 0;
+    background: linear-gradient(45deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 90%;
+    margin-inline: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+main {
+    .caratula {
+        max-width: 800px;
+            
+        .institucion {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .materia {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .icon-container {
+            position: relative;
+            
+            .circuit-icon {
+                animation: pulse 2s infinite;
+                width: 240px;
+            }
+        }
+        
+        .subtitulo {
+            font-size: 20px;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+        
+        .info-estudiante {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        .label {
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: #fbbf24;
+        }
+        
+        .campo {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            min-height: 25px;
+        }
+        
+        .fecha {
+            font-size: 16px;
+            margin-top: 30px;
+            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.582);
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            opacity: 0.3;
+            animation: float 3s ease-in-out infinite;
+        
+            img {
+                width: 100px;
+            }
+        }
+        
+        .tech-pattern {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 30px;
+            opacity: 0.2;
+        }
+
+    }
+    
+    .caratula::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transform: rotate(45deg);
+        animation: shine 3s infinite;
+    }
+    
+    .index {
+        margin-block: 100px;
+        display: grid;
+        max-width: 800px;
+        margin-inline: auto;
+
+        h2 {
+            text-align: center;
+        }
+
+        ul {
+            font-size: 1.5rem;
+            list-style-type: none;
+            width: 100%;
+
+            
+            li {
+                margin-block: 1.2rem;              
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                transition: scale .1s ease-in-out;
+
+                .num-list {
+                    color: #fbbf24;
+                    font-weight: 600;
+                    transition: scale .1s ease-in;
+                }
+
+                .dotted-line {
+                    width: 100%;
+                    border-bottom: 4px dotted white;
+                    margin-bottom: 6px;
+                    transition: scale .1s ease-in;
+                }
+
+                a {
+                    text-wrap: nowrap;
+                    text-decoration: none;
+                    text-align: left;
+                    color: #ffffff;
+                    transition: color .1s ease-in-out, 
+                    scale .1s ease-in;
+
+                    &:hover {
+                        color: #dadadade;
+                    }
+
+                    &:hover + .dotted-line,
+                    &:hover ~ .num-list {
+                        border-color: #dadadade;
+                        color: #fbbe24de;
+                    }
+                }
+
+                &:has(:nth-child(1):hover) {
+                    scale: 1.1;
+                }
+            }
+        }
+        
+    }
+    
+    .project {
+        max-width: 75rem;
+        width: 100%;
+
+        p {
+            text-align: left;
+            margin-block: 1.2rem;
+            font-size: 1.1rem;
+            padding-inline: 4rem;
+            text-wrap: pretty;
+        }
+        
+        em {
+            font-weight: 600;
+        }
+
+        strong {
+            color: #fbbf24;
+        }
+
+        .intro {
+            text-align: left;
+
+            h2 {
+                text-align: center;
+            }
+        }
+
+        .fundamentation {
+            margin-top: 3rem;
+
+            h3 {
+                color: #fbbf24;
+                font-size: 1.4rem;
+            }
+
+            .aspects {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(250px, 1fr)); 
+                padding: 0 4rem;
+                gap: 30px;
+                
+                p {
+                    padding: 0;
+                }
+
+                mark {
+                    background: rgba(255, 255, 255, 0.356);
+                    padding: 2px 5px;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .objetives {
+            margin-top: 3rem;
+        }
+
+        .application-of-the-solution {
+            margin-top: 3rem;
+        }
+
+        .evaluation {
+            margin-top: 3rem;
+        }
+    }
+}
